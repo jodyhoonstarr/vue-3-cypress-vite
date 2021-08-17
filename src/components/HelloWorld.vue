@@ -91,6 +91,7 @@
         >
       </li>
     </ul>
+    <button id="customButton" @click="customEvent">Emitter - Click Me!</button>
   </div>
 </template>
 
@@ -102,6 +103,14 @@ export default defineComponent({
   props: {
     msg: String,
   },
+  emits:["testEvent"],
+  setup(props, { emit }){
+    function customEvent() {
+      emit("testEvent")
+    }
+
+    return { customEvent }
+  }
 });
 </script>
 
